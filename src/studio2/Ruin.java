@@ -44,7 +44,16 @@ public class Ruin {
 				System.out.println("The day was a success!");
 			}
 			System.out.print("For day " + (day+1) + " you've completed " + count + " rounds.");
-
+		double a = (1.0 - winChance * 1.0)/ winChance * 1.0;	
+		double expectedRuin = 0;
+		if (winChance == 0.5) {
+			expectedRuin = 1.0 - (startAmount * 1.0 / winLimit * 1.0);
+		}
+		else {
+			a = (Math.pow(a, startAmount) - Math.pow(a, winLimit))/(1.0 - Math.pow(a,winLimit));
+			
+		}
+			System.out.print(expectedRuin);
 		}
 	}
 }
