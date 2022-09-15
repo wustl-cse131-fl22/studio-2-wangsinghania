@@ -16,19 +16,35 @@ public class Ruin {
 		System.out.print("Enter your winning limit: ");
 		int winLimit = in.nextInt();
 
-		int money = startAmount;
+		System.out.print("Enter total simulations: ");
+		int totalSimulations = in.nextInt();
+		
+		
+		for (int day = 0; day < totalSimulations; day++) {
+			int money = startAmount;
+			int count = 0;
+			while (money > 0 && money < winLimit)
+			{
+			
+				
+				if (Math.random() < winChance) {
+					money += 1;
 
-		while (money > 0 && money < winLimit)
-		{
-			if (Math.random() < winChance) {
-				money += 1;
-				System.out.println("You won! Your total is: " + money);
+				}
+				else {
+					money -=1; 	
+
+				}
+				count++;
+			}
+			if (money<winLimit) {
+				System.out.println("The day ended in ruin :(");
 			}
 			else {
-				money -=1; 
-				System.out.println("You lost :( Your total is: " + money);
+				System.out.println("The day was a success!");
 			}
-		}
+			System.out.print("For day " + (day+1) + " you've completed " + count + " rounds.");
 
+		}
 	}
 }
