@@ -53,7 +53,8 @@ public class Ruin {
 			a = (Math.pow(a, startAmount) - Math.pow(a, winLimit))/(1.0 - Math.pow(a,winLimit));
 			
 		}
-			System.out.print(expectedRuin);
+		
 		}
+		System.out.print(expectedRuin);
 	}
 }
